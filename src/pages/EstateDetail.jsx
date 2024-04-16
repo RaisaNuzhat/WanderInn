@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import { Helmet } from "react-helmet-async";
 const EstateDetail = () => {
     const { id } = useParams();
     const [estatedetail, setEstateDetail] = useState(null);
@@ -37,6 +37,11 @@ const EstateDetail = () => {
 
     return (
         <div>
+             <Helmet>
+                <title>
+                    WanderInn|EstateDetails
+                </title>
+            </Helmet>
             {
                 estatedetail &&
                 <section>
