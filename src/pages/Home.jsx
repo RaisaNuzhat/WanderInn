@@ -2,7 +2,7 @@
 
 const Home = () => {
     return (
-        <div>
+        <div className="flex justify-center my-8">
             hi
         </div>
     );
