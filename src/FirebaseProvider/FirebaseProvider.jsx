@@ -4,11 +4,12 @@ import { createUserWithEmailAndPassword,signInWithEmailAndPassword ,signInWithPo
 import auth from "../firebase/firebase.init";
 import { GoogleAuthProvider } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
+import { GithubAuthProvider } from "firebase/auth";
 export const AuthContext = createContext(null);
 
 //social providers
 const googleProvider = new GoogleAuthProvider();
-
+const githubProvider = new GithubAuthProvider();
 
 const FirebaseProvider = ({children}) => {
     const [user,setUser] = useState(null)
@@ -42,10 +43,16 @@ const FirebaseProvider = ({children}) => {
         {
             signInWithPopup(auth, googleProvider)
         }
+        //github login
+        const signinWithGithub = () =>
+        {
+            signInWithPopup(auth, githubProvider)
+        }
     const allvalues = {
         createUser,
         signinUser,
-        signinWithGoogle
+        signinWithGoogle,
+        signinWithGithub
     }
     return (
        
