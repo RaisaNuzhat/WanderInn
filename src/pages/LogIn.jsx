@@ -1,7 +1,31 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-
+import { FaSquareGithub } from "react-icons/fa6";
+import { useContext } from "react";
+import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
+import { useForm } from "react-hook-form";
 const LogIn = () => {
+    const { signinUser } = useContext(AuthContext)
+    const {
+        register,
+        handleSubmit,
+        
+        formState: { errors },
+    } = useForm()
+    const onSubmit = (data) => {
+        console.log(data)
+        signinUser(data.email,data.password)
+        .then(
+            result =>
+            {
+                console.log(result)
+            }
+        )
+        .catch(
+            error =>
+            console.log(error)
+        )
+    }
     return (
         <div>
             <Helmet>
@@ -16,28 +40,33 @@ const LogIn = () => {
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     </div>
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form className="card-body">
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" placeholder="email" className="input input-bordered" required />
+                                <input {...register("email", { required: true })} type="email" placeholder="email" className="input input-bordered" />
+                                {errors.email && <span className="text-red-500">This field is required</span>}
+
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="password" className="input input-bordered" required />
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
+                                <input {...register("password", { required: true })} type="password" placeholder="password" className="input input-bordered" required />
+                                {errors.password && <span className="text-red-500">This field is required</span>}
+
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="btn bg-[#f95959] text-white">Login</button>
                             </div>
-                            <p className="text-[18px] font-medium">
-                                Dont Have An Account? <Link to='/register'> Click Here to Register </Link>
-                            </p>
+                            <FaSquareGithub />
+                            <div className="flex justify-center items-center">
+                            <Link to='/register' href="#" className="label-text-alt link link-hover font-medium text-[18px]">New Here? Register Here</Link>
+                                
+                                
+                            
+                            </div>
                         </form>
                     </div>
                 </div>
