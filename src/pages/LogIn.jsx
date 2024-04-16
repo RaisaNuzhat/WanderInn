@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaSquareGithub } from "react-icons/fa6";
+import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
 import { useForm } from "react-hook-form";
 const LogIn = () => {
-    const { signinUser } = useContext(AuthContext)
+    const { signinUser ,signinWithGoogle} = useContext(AuthContext)
     const {
         register,
         handleSubmit,
@@ -60,14 +61,22 @@ const LogIn = () => {
                             <div className="form-control mt-6">
                                 <button className="btn bg-[#f95959] text-white">Login</button>
                             </div>
-                            <FaSquareGithub />
+                           
+                            
+
                             <div className="flex justify-center items-center">
-                            <Link to='/register' href="#" className="label-text-alt link link-hover font-medium text-[18px]">New Here? Register Here</Link>
+                            <Link to='/register' href="#" className="label-text-alt link link-hover my-3 font-medium text-[18px]">New Here? Register Here</Link>
                                 
                                 
                             
                             </div>
                         </form>
+                        <div className="flex gap-4 my-4 items-center justify-center text-3xl cursor-pointer font-medium">
+                            <p className="text-center font-medium text-[18px]">Or , Continue With</p>
+                             <button onClick={() => signinWithGoogle() } className="btn-circle border-none bg-transparent p-3"> <FcGoogle /></button>  
+                             <button className="btn-circle border-none bg-transparent p-3 "><FaSquareGithub /></button>  
+                           
+                        </div>
                     </div>
                 </div>
             </div>
