@@ -9,7 +9,7 @@
       "area": "4000 sq ft",
       "location": "Maui, Hawaii",
       "facilities": ["Private beach access", "Infinity pool", "Spa", "Gourmet dining"],
-      "image": "beachfront_resort_paradise.jpg",
+      "image": "https://i.ibb.co/569WsTz/resort-4471852-1280.jpg",
       "view_property_button": "View Property"
     },
     {
@@ -22,7 +22,7 @@
       "area": "1500 sq ft",
       "location": "Gatlinburg, Tennessee",
       "facilities": ["Wood-burning fireplace", "Hot tub", "Hiking trails nearby", "Deck with mountain views"],
-      "image": "rustic_mountain_cabin.jpg",
+      "image": "https://i.ibb.co/12kCKTC/hdr-2244067-1280.jpg",
       "view_property_button": "View Property"
     },
     {
@@ -35,7 +35,7 @@
       "area": "2200 sq ft",
       "location": "Chicago, Illinois",
       "facilities": ["Skyline view rooms", "Fine dining restaurant", "Business center", "Fitness facility"],
-      "image": "luxury_downtown_hotel.jpg",
+      "image": "https://i.ibb.co/FgBBLDt/hotel-1831072-1280.jpg",
       "view_property_button": "View Property"
     },
     {
@@ -48,7 +48,7 @@
       "area": "1800 sq ft",
       "location": "Lake Placid, New York",
       "facilities": ["Lakefront deck", "Canoe and kayak rentals", "Fire pit", "Outdoor dining area"],
-      "image": "lakeview_cabin_retreat.jpg",
+      "image": "https://i.ibb.co/LhhLpd2/resort-213151-1280.jpg",
       "view_property_button": "View Property"
     },
     {
@@ -61,7 +61,7 @@
       "area": "1200 sq ft",
       "location": "Cape Cod, Massachusetts",
       "facilities": ["Garden courtyard", "Complimentary breakfast", "Bike rentals", "Pet-friendly rooms"],
-      "image": "coastal_boutique_inn.jpg",
+      "image": "https://i.ibb.co/ftDkmXz/seaside-384586-1280.jpg",
       "view_property_button": "View Property"
     },
     {
@@ -74,7 +74,7 @@
       "area": "3500 sq ft",
       "location": "Whistler, British Columbia",
       "facilities": ["Hot tub with mountain views", "Home theater", "Ski gear storage", "Apres-ski lounge"],
-      "image": "ski_in_ski_out_chalet.jpg",
+      "image": "https://i.ibb.co/8Py55LZ/arch-5826002-1280.jpg",
       "view_property_button": "View Property"
     },
     {
@@ -87,7 +87,7 @@
       "area": "1800 sq ft",
       "location": "Charleston, South Carolina",
       "facilities": ["Antique furnishings", "Southern-style breakfast", "Wrap-around porch", "Walking distance to attractions"],
-      "image": "historic_downtown_bed_and_breakfast.jpg",
+      "image": "https://i.ibb.co/19tDhTg/road-6531031-1280.jpg",
       "view_property_button": "View Property"
     },
     {
@@ -100,7 +100,7 @@
       "area": "5000 sq ft",
       "location": "Bali, Indonesia",
       "facilities": ["Private infinity pool", "Poolside cabana", "Outdoor dining pavilion", "Yoga studio"],
-      "image": "tropical_villa_retreat.jpg",
+      "image": "https://i.ibb.co/1ThjH9M/villa-6822483-1280.jpg",
       "view_property_button": "View Property"
     }
   ]
