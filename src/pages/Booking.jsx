@@ -1,6 +1,11 @@
 import img5 from '../assets/img5.jpg'
-
+import { Helmet } from "react-helmet-async";
 const Booking = () => {
+    <Helmet>
+    <title>
+        WanderInn|Booking
+    </title>
+</Helmet>
     return (
         <div className="flex justify-center my-10 items-center container">
             <div className="hero min-h-screen" style={{ backgroundImage: `url(${img5})` }}>

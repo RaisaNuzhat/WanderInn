@@ -11,7 +11,7 @@ const PrivateRoute = ({children}) => {
     const location = useLocation();
     if(loading)
     {
-        // 
+         
         return <div className="flex justify-center items-center container my-10 font-bold ">
             <span className="loading loading-dots loading-lg "></span>
         </div>

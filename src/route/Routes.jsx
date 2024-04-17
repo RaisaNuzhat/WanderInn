@@ -7,6 +7,7 @@ import LogIn from '../pages/LogIn';
 import Register from '../pages/Register';
 import PrivateRoute from '../components/Privateroute/PrivateRoute';
 import Booking from '../pages/Booking';
+import UpdateProfile from '../pages/UpdateProfile';
 export const router = createBrowserRouter([
 
   {
@@ -39,6 +40,12 @@ export const router = createBrowserRouter([
           <Booking/>
           </PrivateRoute>
       },
+      {
+        path:'/updateprofile',
+        element:<PrivateRoute>
+          <UpdateProfile/>
+          </PrivateRoute>
+      }
      
 
       

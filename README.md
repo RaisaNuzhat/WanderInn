@@ -4,12 +4,12 @@ Welcome to WanderInn, a platform designed to connect travelers with unique accom
 
 ## Features
 
-1. **Responsive Design**: Enjoy seamless browsing across devices with our responsive website layout.
-2. **Animated Transitions**: Engage with smooth and captivating animations powered by AOS (Animate On Scroll).
-3. **User Authentication**: Register and login securely using Firebase Authentication, ensuring your data remains protected.
-4. **Dynamic Estate Display**: Explore a diverse range of accommodations showcased dynamically using React Hook Form for form management.
-5. **Intuitive Swiping**: Discover properties effortlessly with intuitive swiping functionality implemented using Swiper JS.
-6. **Rich User Experience**: Immerse yourself in a rich and interactive browsing experience, enhanced by our carefully curated selection of features and packages.
+ **Responsive Design**: Enjoy seamless browsing across devices with our responsive website layout.
+ **Animated Transitions**: Engage with smooth and captivating animations powered by AOS (Animate On Scroll).
+ **User Authentication**: Register and login securely using Firebase Authentication, ensuring your data remains protected.
+ **Dynamic Estate Display**: Explore a diverse range of accommodations showcased dynamically using React Hook Form for form management.
+ **Intuitive Swiping**: Discover properties effortlessly with intuitive swiping functionality implemented using Swiper JS.
+ **Rich User Experience**: Immerse yourself in a rich and interactive browsing experience, enhanced by our carefully curated selection of features and packages.
 
 ## Packages Used
 
