@@ -1,25 +1,35 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaSquareGithub } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
 import { useForm } from "react-hook-form";
+
 const LogIn = () => {
+
     const { signinUser ,signinWithGoogle,signinWithGithub} = useContext(AuthContext)
     const {
         register,
         handleSubmit,
-        
         formState: { errors },
     } = useForm()
+    //navigation system
+    const location = useLocation();
+    const navigate = useNavigate();
+    //console.log(location)
+    const from = location?.state || "/"
+   
     const onSubmit = (data) => {
         console.log(data)
         signinUser(data.email,data.password)
         .then(
             result =>
             {
-                console.log(result)
+                if(result.user)
+                {
+                    navigate(from);
+                }
             }
         )
         .catch(
@@ -27,6 +37,22 @@ const LogIn = () => {
             console.log(error)
         )
     }
+    // const handleSocialLogin = (socialProvider) =>
+    // {
+    //     socialProvider().then( (result) =>
+    //         {
+    //             if(result.user)
+    //             {
+    //                 navigate(from)
+    //             }
+    //         }
+    //     )
+    //     .catch(error => {
+    //         console.error('Error occurred during social login:', error);
+    //     })
+    // }
+
+  
     return (
         <div>
             <Helmet>

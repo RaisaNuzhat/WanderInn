@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
 import { useForm } from "react-hook-form";
 import { FaEye } from "react-icons/fa";
@@ -15,14 +15,22 @@ const Register = () => {
         
         formState: { errors },
     } = useForm()
+     //navigation system
+     const location = useLocation();
+     const navigate = useNavigate();
+     //console.log(location)
+     const from = location?.state || "/"
 
     const onSubmit = (data) => {
-        console.log(data)
+        //console.log(data)
         createUser(data.email,data.password)
         .then(
             result =>
             {
-                console.log(result)
+                if(result.user)
+                {
+                    navigate(from);
+                }
             }
         )
     }
