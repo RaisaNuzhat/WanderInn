@@ -5,6 +5,10 @@ import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
 import { useForm } from "react-hook-form";
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2'; 
+import 'sweetalert2/dist/sweetalert2.css'; 
 
 const LogIn = () => {
 
@@ -17,26 +21,63 @@ const LogIn = () => {
     //navigation system
     const location = useLocation();
     const navigate = useNavigate();
+   // const notify = () => toast("please login with the registered email!");
     //console.log(location)
     const from = location?.state || "/"
-   
-    const onSubmit = (data) => {
-        console.log(data)
-        signinUser(data.email,data.password)
-        .then(
-            result =>
-            {
-                if(result.user)
-                {
-                    navigate(from);
-                }
+  
+    // const onSubmit = (data) => {
+    //     console.log(data)
+    //     signinUser(data.email,data.password)
+    //     .then(
+    //         result =>
+    //         {
+    //             if(result.user)
+    //             {
+    //                 navigate(from);
+    //             }
+    //             else {
+                   
+    //                 Swal.fire({
+    //                     icon: 'error',
+    //                     title: 'Invalid email or password',
+    //                     text: 'Please check your email and try again',
+    //                 });
+    //             }
+    //         }
+    //     )
+    //     .catch(
+    //         error =>
+    //         console.log(error)
+    //     )
+    // }
+    const onSubmit = async (data) => {
+        console.log("Form submitted:", data); 
+        
+        try {
+            const result = await signinUser(data.email, data.password);
+            console.log("Signin result:", result); 
+            
+            if (result && result.user) {
+                navigate(from);
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Invalid email or password',
+                    text: 'Please check your email and try again',
+                });
             }
-        )
-        .catch(
-            error =>
-            console.log(error)
-        )
-    }
+        } catch (error) {
+            console.error("Error signing in:", error);
+           
+            Swal.fire({
+                icon: 'error',
+                title: 'Error signing in',
+                text: 'Please try again later',
+            });
+        }
+    };
+    
+
     // const handleSocialLogin = (socialProvider) =>
     // {
     //     socialProvider().then( (result) =>
@@ -52,7 +93,6 @@ const LogIn = () => {
     //     })
     // }
 
-  
     return (
         <div>
             <Helmet>
@@ -87,14 +127,8 @@ const LogIn = () => {
                             <div className="form-control mt-6">
                                 <button className="btn bg-[#f95959] text-white">Login</button>
                             </div>
-                           
-                            
-
                             <div className="flex justify-center items-center">
                             <Link to='/register' href="#" className="label-text-alt link link-hover my-3 font-medium text-[18px]">New Here? Register Here</Link>
-                                
-                                
-                            
                             </div>
                         </form>
                         <div className="flex gap-4 my-4 items-center justify-center text-3xl cursor-pointer font-medium">
@@ -106,6 +140,7 @@ const LogIn = () => {
                     </div>
                 </div>
             </div>
+            
         </div>
     );
 };

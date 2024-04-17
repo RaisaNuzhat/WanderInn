@@ -7,32 +7,35 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 const Register = () => {
-    const { createUser } = useContext(AuthContext)
+    const { createUser, updateUserProfile } = useContext(AuthContext)
     const [pass, setshowPass] = useState(false)
     const {
         register,
         handleSubmit,
-        
+
         formState: { errors },
     } = useForm()
-     //navigation system
-     const location = useLocation();
-     const navigate = useNavigate();
-     //console.log(location)
-     const from = location?.state || "/"
+    //navigation system
+    const location = useLocation();
+    const navigate = useNavigate();
+    //console.log(location)
+    const from = location?.state || "/"
 
     const onSubmit = (data) => {
-        //console.log(data)
-        createUser(data.email,data.password)
-        .then(
-            result =>
-            {
-                if(result.user)
-                {
-                    navigate(from);
+        console.log(data)
+        const { email, password, fullName, image } = data;
+        createUser(email, password)
+            .then(
+                () => {
+                    updateUserProfile(fullName, image) //updateprofile
+                        .then(
+                            () => {
+                                navigate(from);
+                            }
+                        )
+
                 }
-            }
-        )
+            )
     }
     return (
         <div>
@@ -69,7 +72,7 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Image URL</span>
                                 </label>
-                                <input {...register("imageURL")} type="text" placeholder="image URL" className="input input-bordered" />
+                                <input {...register("image")} type="text" placeholder="image URL" className="input input-bordered" />
 
                             </div>
                             <div className="form-control relative">
@@ -78,10 +81,10 @@ const Register = () => {
                                 </label>
                                 <input  {...register("password", { required: true })} type={pass ? "text" : "password"} placeholder="password" className="input input-bordered" required />
                                 <span onClick={() => setshowPass(!pass)} className='cursor-pointer absolute right-5 top-2'>
-                                        {
-                                            pass ? <FaEye /> : <FaEyeSlash />
-                                        }
-                                    </span>
+                                    {
+                                        pass ? <FaEye /> : <FaEyeSlash />
+                                    }
+                                </span>
                                 {errors.password && <span className="text-red-500">This field is required</span>}
                             </div>
                             <div className="form-control mt-6">
