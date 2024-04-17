@@ -19,9 +19,10 @@ const Estates = () => {
 
         fetchData();
     }, []);
+   
     return (
         <div className="flex justify-center container items-center my-10">
-             <div className="grid gap-8 my-8  lg:grid-cols-2 grid-cols-1 mx-5">
+             <div className="grid gap-8 my-8   grid-cols-1 mx-5">
                     {estates.map(estate => <EstateCard estate={estate} key={estate.id} />)}
                 </div>
         </div>
