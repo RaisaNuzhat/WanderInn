@@ -6,6 +6,7 @@ import ErrorPage from '../components/ErrorPage';
 import LogIn from '../pages/LogIn';
 import Register from '../pages/Register';
 import PrivateRoute from '../components/Privateroute/PrivateRoute';
+import Booking from '../pages/Booking';
 export const router = createBrowserRouter([
 
   {
@@ -31,7 +32,13 @@ export const router = createBrowserRouter([
       {
         path:'/register',
         element:<Register/>
-      }
+      },
+      {
+        path:'/booking',
+        element:<PrivateRoute>
+          <Booking/>
+          </PrivateRoute>
+      },
      
 
       

@@ -14,6 +14,7 @@ const Navbar = () => {
                 <div className="flex-1 gap-2 justify-evenly">
                     <NavLink to='/' className={({ isActive }) => isActive ? 'text-[#f95959] lg:font-bold' : 'text-white lg:font-bold'}>Home</NavLink>
                     <NavLink to='/updateprofile' className={({ isActive }) => isActive ? 'text-[#f95959] lg:font-bold' : 'text-white lg:font-bold'}>Update Profile</NavLink>
+                    <NavLink to='/booking' className={({ isActive }) => isActive ? 'text-[#f95959] lg:font-bold' : 'text-white lg:font-bold'}>Bookings</NavLink>
                     <div className="flex items-center justify-evenly">
                         {user?.email ? (
                             <div className="flex items-center justify-evenly gap-4">
