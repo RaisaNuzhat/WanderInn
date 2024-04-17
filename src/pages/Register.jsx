@@ -6,13 +6,17 @@ import { useForm } from "react-hook-form";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.css';
+
 const Register = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext)
     const [pass, setshowPass] = useState(false)
+    const [registerError, setRegisterError] = useState('');
+    const [success, setSuccess] = useState('')
     const {
         register,
         handleSubmit,
-
         formState: { errors },
     } = useForm()
     //navigation system
@@ -24,16 +28,45 @@ const Register = () => {
     const onSubmit = (data) => {
         console.log(data)
         const { email, password, fullName, image } = data;
+        setRegisterError('')
+        setSuccess('')
+        if (password.length < 6) {
+            setRegisterError('password should be at least 6 characters long')
+            return;
+        }
+        else if (!/[A-Z]/.test(password) || !/[a-z]/.test(password)) {
+            setRegisterError("Password should have at least one uppercase and one lowercase letter.");
+            return;
+        }
         createUser(email, password)
             .then(
                 () => {
                     updateUserProfile(fullName, image) //updateprofile
+
                         .then(
                             () => {
-                                navigate(from);
+                                setSuccess("Congratulations! registration successfull!")
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Registration Successful!',
+                                    text: success,
+                                }).then(() => {
+                                    navigate(from);
+                                });
                             }
                         )
 
+                }
+            )
+            .catch(
+                error => {
+                    console.error(error)
+                    setRegisterError(error.message)
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Registration Error',
+                        text: registerError,
+                    });
                 }
             )
     }
@@ -86,6 +119,12 @@ const Register = () => {
                                     }
                                 </span>
                                 {errors.password && <span className="text-red-500">This field is required</span>}
+                                {
+                                    registerError &&
+                                    <p className='text-[14px] font-medium flex justify-center items-center container text-center text-red-500'>
+                                        {registerError}
+                                    </p>
+                                }
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn bg-[#f95959] text-white">Register</button>
@@ -98,6 +137,7 @@ const Register = () => {
 
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>
