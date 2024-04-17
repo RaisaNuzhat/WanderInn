@@ -50,6 +50,7 @@ const FirebaseProvider = ({children}) => {
         }
         const logOut = () =>
         {
+            setUser(null)
             signOut(auth)
         }
     const allvalues = {

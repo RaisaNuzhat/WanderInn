@@ -4,7 +4,7 @@ import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
 
 const Navbar = () => {
     const { logOut, user } = useContext(AuthContext);
-
+   console.log(user)
     return (
         <div>
             <div className="navbar bg-[#233142]">
@@ -14,19 +14,24 @@ const Navbar = () => {
                 <div className="flex-1 gap-2 justify-evenly">
                     <NavLink to='/' className={({ isActive }) => isActive ? 'text-[#f95959] lg:font-bold' : 'text-white lg:font-bold'}>Home</NavLink>
                     <NavLink to='/updateprofile' className={({ isActive }) => isActive ? 'text-[#f95959] lg:font-bold' : 'text-white lg:font-bold'}>Update Profile</NavLink>
-                    <div>
+                    <div className="flex items-center justify-evenly">
                         {user?.email ? (
-                            <div className="dropdown dropdown-end">
+                            <div className="flex items-center justify-evenly gap-4">
+                                <div className="dropdown dropdown-end">
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full">
+                                            <img alt="Tailwind CSS Navbar component" src="https://i.ibb.co/sVJ3S81/cat-551554-1280.jpg" />
+                                        </div>
+                                    </div>
+                                    <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                                        <li>
+                                            <a className="justify-between">
+                                                {user.displayName}
 
-
-
-
-                               
-
-
-
-                                <div className="tooltip tooltip-open tooltip-bottom" data-tip="hello">
-                                <img className="w-10 rounded-full" alt="User Avatar" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
                                 </div>
                                 <button onClick={logOut} className="btn bg-[#f95959] text-white border-none">Log Out</button>
                             </div>

@@ -3,8 +3,12 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
 import { useForm } from "react-hook-form";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
+import { useState } from "react";
 const Register = () => {
     const { createUser } = useContext(AuthContext)
+    const [pass, setshowPass] = useState(false)
     const {
         register,
         handleSubmit,
@@ -60,11 +64,16 @@ const Register = () => {
                                 <input {...register("imageURL")} type="text" placeholder="image URL" className="input input-bordered" />
 
                             </div>
-                            <div className="form-control">
+                            <div className="form-control relative">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input  {...register("password", { required: true })} type="password" placeholder="password" className="input input-bordered" required />
+                                <input  {...register("password", { required: true })} type={pass ? "text" : "password"} placeholder="password" className="input input-bordered" required />
+                                <span onClick={() => setshowPass(!pass)} className='cursor-pointer absolute right-5 top-2'>
+                                        {
+                                            pass ? <FaEye /> : <FaEyeSlash />
+                                        }
+                                    </span>
                                 {errors.password && <span className="text-red-500">This field is required</span>}
                             </div>
                             <div className="form-control mt-6">
