@@ -36,7 +36,7 @@ const FirebaseProvider = ({children}) => {
         const signinUser = (email,password) =>
 
         {
-            setLoading(true)
+           setLoading(true)
            return signInWithEmailAndPassword(auth, email, password)
         }
          //navigation system
@@ -88,7 +88,7 @@ const FirebaseProvider = ({children}) => {
                 } else {
                   // User is signed out
                   // ...
-                  
+                  setLoading(false)
                 }
               });
               return () => unsubscribe()
