@@ -77,12 +77,12 @@ const LogIn = () => {
         }
     };
     
-
+    
     // const handleSocialLogin = (socialProvider) =>
     // {
     //     socialProvider().then( (result) =>
     //         {
-    //             if(result.user)
+    //             if(result && result.user)
     //             {
     //                 navigate(from)
     //             }
@@ -100,7 +100,7 @@ const LogIn = () => {
                     WanderInn|Login
                 </title>
             </Helmet>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen bg-base-200 my-14">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Login now!</h1>

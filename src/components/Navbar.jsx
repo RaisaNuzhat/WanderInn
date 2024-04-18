@@ -16,7 +16,7 @@ const Navbar = () => {
                     <NavLink to='/updateprofile' className={({ isActive }) => isActive ? 'text-[#f95959] lg:font-bold' : 'text-white lg:font-bold'}>Update Profile</NavLink>
                     <NavLink to='/booking' className={({ isActive }) => isActive ? 'text-[#f95959] lg:font-bold' : 'text-white lg:font-bold'}>Bookings</NavLink>
                     <div className="flex items-center justify-evenly">
-                        {user?.email ? (
+                        {user?  (
                             <div className="flex items-center justify-evenly gap-4">
                                 <div className="dropdown dropdown-end">
                                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
